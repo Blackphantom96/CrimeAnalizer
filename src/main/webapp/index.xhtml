@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3c.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui" 
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head></h:head>
+    <h:body>
+        <h:form id="table">
+            <p:dataTable id="basicDT" var="x" value="#{Historial.objetoNoEntrega}">
+                <f:facet name="header">
+                    Objetos Perdidos
+                </f:facet>
+                <p:column headerText="Nombre">
+                    <h:outputText value="#{x.name}" />
+                </p:column>
+                <p:column headerText="Fecha encontrado">
+                    <h:outputText value="#{x.foundDate}" />
+                </p:column>
+                <p:column headerText="Detalles">
+                    <h:outputText value="#{x.description}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+    </h:body>
+</html>
