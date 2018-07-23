@@ -11,8 +11,12 @@ public class Utiles {
     private static Statement conection;
     private static Map<String,List<String>> departamentos;
     private static Map<String,String> cordsByMun;
-
+    private static List<String> categorias;
     private static String dataBase,pass,user;
+
+
+    //TODO: implementar singleton
+
     public static void getConection(){
         dataBase="DatosALaU";
         user="DatosALaUAdmin";
@@ -64,5 +68,17 @@ public class Utiles {
         System.out.println(s);
         return cordsByMun.getOrDefault(s,"4.712466774918567,-74.07932907650894");
     }
+
+    public static List<String> getCategorias() throws SQLException {
+        if(categorias==null){
+            getConection();
+            categorias = new ArrayList<>();
+            ResultSet res = makeQuery("*","categorias","true");
+            while (res.next())
+                categorias.add(res.getString("categoria"));
+        }
+        return categorias;
+    }
+
 }
 
