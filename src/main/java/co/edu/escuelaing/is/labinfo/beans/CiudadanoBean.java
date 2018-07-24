@@ -3,6 +3,7 @@ package co.edu.escuelaing.is.labinfo.beans;
 import co.edu.escuelaing.is.labinfo.entities.Denuncia;
 import co.edu.escuelaing.is.labinfo.utiles.Utiles;
 
+import javax.enterprise.context.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
 import java.io.Serializable;
@@ -19,9 +20,11 @@ import javax.faces.application.FacesMessage;
 import javax.annotation.PostConstruct;
 
 @ManagedBean
-@ApplicationScoped
+@SessionScoped
 public class CiudadanoBean implements Serializable {
     private Denuncia denuncia;
+    private String departamento, municipio, barrio, delito;
+    private Date fecha,hora;
     private List<String> municipios;
     public static final String[] COLUMNAS= {
             "edad",
@@ -43,7 +46,8 @@ public class CiudadanoBean implements Serializable {
             "modelo",
             "color",
             "profesiones",
-            "categoria"};
+            "categoria",
+            "barrio"};
     private static final Map<String,String[]> CATEGORIAS = new HashMap<>();
     {
         CATEGORIAS.put("abigeato",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
@@ -172,121 +176,127 @@ public class CiudadanoBean implements Serializable {
 
     public List<String> autoCompleteMethod0(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[0])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[0])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod1(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[1])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[1])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod2(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[2])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[2])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod3(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[3])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[3])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod4(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[4])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[4])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod5(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[5])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[5])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod6(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[6])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[6])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod7(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[7])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[7])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod8(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[8])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[8])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod9(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[9])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[9])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod10(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[10])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[10])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod11(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[11])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[11])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod12(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[12])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[12])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod13(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[13])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[13])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod14(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[14])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[14])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod15(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[15])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[15])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod16(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[16])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[16])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod17(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[17])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[17])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod18(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[18])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[18])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod19(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getColumnValues().get(COLUMNAS[19])) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[19])) if (x.toLowerCase().startsWith(q.toLowerCase())){
+            res.add(x);
+        }
+        return res;
+    }public List<String> autoCompleteMethod20(String q) throws SQLException {
+        List<String> res = new ArrayList<>();
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[20])) if (x.toLowerCase().startsWith(q.toLowerCase())){
             res.add(x);
         }
         return res;
@@ -294,6 +304,54 @@ public class CiudadanoBean implements Serializable {
 
     public void upload() throws SQLException {
         Utiles.insertCrimen(denuncia,"DatosAlaU");
+    }
+
+    public String getDepartamento() {
+        return departamento;
+    }
+
+    public void setDepartamento(String departamento) {
+        this.departamento = departamento;
+    }
+
+    public String getMunicipio() {
+        return municipio;
+    }
+
+    public void setMunicipio(String municipio) {
+        this.municipio = municipio;
+    }
+
+    public String getBarrio() {
+        return barrio;
+    }
+
+    public void setBarrio(String barrio) {
+        this.barrio = barrio;
+    }
+
+    public String getDelito() {
+        return delito;
+    }
+
+    public void setDelito(String delito) {
+        this.delito = delito;
+    }
+
+    public Date getFecha() {
+        return fecha;
+    }
+
+    public void setFecha(Date fecha) {
+        this.fecha = fecha;
+    }
+
+    public Date getHora() {
+        return hora;
+    }
+
+    public void setHora(Date hora) {
+        this.hora = hora;
     }
 
 

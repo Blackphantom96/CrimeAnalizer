@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <title>Ciudadano - Denuncie</title>
+</h:head>
+<h:body>
+    <h:form id="table">
+        <p:wizard  flowListener="#{ciudadanoBean.onFlowProcess}">
+            <p:tab title="Informacion Basica">
+                <p:panel header="">
+                    <h:panelGrid columns="4">
+                        <p:outputLabel for="@next" value="Fecha: "/> <p:calendar required="true" value="#{ciudadanoBean.denuncia.fecha}"/>
+                        <p:outputLabel for="@next" value="Hora: "/> <p:calendar required="true" value="#{ciudadanoBean.denuncia.hora}" pattern="HH:mm" timeOnly="true"/>
+                        <p:outputLabel for="@next" value="Departamento: " />
+                        <p:selectOneMenu id="departamento" value="#{ciudadanoBean.denuncia.departamento}" filter="true">
+                            <p:ajax listener="#{ciudadanoBean.onDepartamentoChange}" update="municipio" />
+                            <f:selectItem itemLabel="Seleccione Departamento" itemValue="" noSelectionOption="true" />
+                            <f:selectItems value="#{ciudadanoBean.departamentos}"/>
+                        </p:selectOneMenu>
+                        <p:outputLabel for="@next" value="Municipio: " />
+                        <p:selectOneMenu id="municipio" value="#{ciudadanoBean.denuncia.municipio}" filter="true">
+                            <p:ajax update="gmap"/>
+                            <f:selectItem itemLabel="Seleccione Municipio" itemValue="" noSelectionOption="true" />
+                            <f:selectItems value="#{ciudadanoBean.municipios}" />
+                        </p:selectOneMenu>
+                        <p:outputLabel for="@next" value="Barrio: "/>
+                        <p:inputText value="#{ciudadanoBean.denuncia.barrio}"/>
+                    </h:panelGrid>
+                </p:panel>
+            </p:tab>
+            <p:tab title="Ubicacion y categoria">
+                <p:panel header="">
+                    <p:gmap id="gmap" center="#{ciudadanoBean.cordenada}" zoom="14" type="ROADMAP" style="width:100%;height:400px"
+                            model="#{ciudadanoBean.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map" />
+                    <br/>
+                    <center>
+                        <p:commandButton value="Limpiar marcadores" actionListener="#{ciudadanoBean.removeMarkers}" update="gmap"/>
+                    </center>
+                </p:panel>
+            </p:tab>
+            <p:tab title="Informacion detallada">
+
+                <p:panel header="">
+                    <h:panelGrid columns="4" style="margin: 0 auto" cellpadding="7px">
+                        <p:outputLabel for="@next" value="Edad: " rendered="#{ciudadanoBean.isRendered(0)}"/>
+                        <h:panelGrid columns="1" rendered="#{ciudadanoBean.isRendered(0)}" >
+                            <p:inputText id="edad" value="#{ciudadanoBean.denuncia.edad}" rendered="#{ciudadanoBean.isRendered(0)}"/>
+                            <p:slider for="edad"/>
+                        </h:panelGrid>
+                        <p:outputLabel for="@next" value="Zona: " rendered="#{ciudadanoBean.isRendered(1)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true"  dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod1}" value="#{ciudadanoBean.denuncia.zona}" rendered="#{ciudadanoBean.isRendered(1)}"/>
+                        <p:outputLabel for="@next" value="Arma empleada: " rendered="#{ciudadanoBean.isRendered(2)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod2}" value="#{ciudadanoBean.denuncia.arma_empleada}" rendered="#{ciudadanoBean.isRendered(2)}"/>
+                        <p:outputLabel for="@next" value="Movil victima: " rendered="#{ciudadanoBean.isRendered(3)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod3}" value="#{ciudadanoBean.denuncia.movil_victima}" rendered="#{ciudadanoBean.isRendered(3)}"/>
+                        <p:outputLabel for="@next" value="Movil agresor: " rendered="#{ciudadanoBean.isRendered(4)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod4}" value="#{ciudadanoBean.denuncia.movil_agresor}" rendered="#{ciudadanoBean.isRendered(4)}"/>
+                        <p:outputLabel for="@next" value="Sexo: " rendered="#{ciudadanoBean.isRendered(5)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod5}" value="#{ciudadanoBean.denuncia.sexo}" rendered="#{ciudadanoBean.isRendered(5)}"/>
+                        <p:outputLabel for="@next" value="Estado civil: " rendered="#{ciudadanoBean.isRendered(6)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod6}" value="#{ciudadanoBean.denuncia.estado_civil}" rendered="#{ciudadanoBean.isRendered(6)}"/>
+                        <p:outputLabel for="@next" value="Escolaridad: " rendered="#{ciudadanoBean.isRendered(7)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod7}" value="#{ciudadanoBean.denuncia.escolaridad}" rendered="#{ciudadanoBean.isRendered(7)}"/>
+                        <p:outputLabel for="@next" value="Clase de sitio: " rendered="#{ciudadanoBean.isRendered(8)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod8}" value="#{ciudadanoBean.denuncia.clase_de_sitio}" rendered="#{ciudadanoBean.isRendered(8)}"/>
+                        <p:outputLabel for="@next" value="Cantidad: " rendered="#{ciudadanoBean.isRendered(9)}"/>
+                        <h:panelGrid columns="1" rendered="#{ciudadanoBean.isRendered(9)}">
+                            <p:inputText id="cantidad" value="#{ciudadanoBean.denuncia.cantidad}" rendered="#{ciudadanoBean.isRendered(9)}"/>
+                            <p:slider for="cantidad"/>
+                        </h:panelGrid>
+
+                        <p:outputLabel for="@next" value="Profesion: " rendered="#{ciudadanoBean.isRendered(10)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod10}" value="#{ciudadanoBean.denuncia.profesion}" rendered="#{ciudadanoBean.isRendered(10)}"/>
+                        <p:outputLabel for="@next" value="Pais de nacimiento: " rendered="#{ciudadanoBean.isRendered(11)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod11}" value="#{ciudadanoBean.denuncia.pais_de_nacimiento}" rendered="#{ciudadanoBean.isRendered(11)}"/>
+                        <p:outputLabel for="@next" value="Clase de empleado: " rendered="#{ciudadanoBean.isRendered(12)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod12}" value="#{ciudadanoBean.denuncia.clase_de_empleado}" rendered="#{ciudadanoBean.isRendered(12)}"/>
+                        <p:outputLabel for="@next" value="Clase: " rendered="#{ciudadanoBean.isRendered(13)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod13}" value="#{ciudadanoBean.denuncia.clase}" rendered="#{ciudadanoBean.isRendered(13)}"/>
+                        <p:outputLabel for="@next" value="Marca: " rendered="#{ciudadanoBean.isRendered(14)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod14}" value="#{ciudadanoBean.denuncia.marca}" rendered="#{ciudadanoBean.isRendered(14)}"/>
+                        <p:outputLabel for="@next" value="Linea: " rendered="#{ciudadanoBean.isRendered(15)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod15}" value="#{ciudadanoBean.denuncia.linea}" rendered="#{ciudadanoBean.isRendered(15)}"/>
+                        <p:outputLabel for="@next" value="Modelo: " rendered="#{ciudadanoBean.isRendered(16)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod16}" value="#{ciudadanoBean.denuncia.modelo}" rendered="#{ciudadanoBean.isRendered(16)}"/>
+                        <p:outputLabel for="@next" value="Color: " rendered="#{ciudadanoBean.isRendered(17)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod17}" value="#{ciudadanoBean.denuncia.color}" rendered="#{ciudadanoBean.isRendered(17)}"/>
+                        <p:outputLabel for="@next" value="Profesiones: " rendered="#{ciudadanoBean.isRendered(18)}"/> <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod18}" value="#{ciudadanoBean.denuncia.profesiones}" rendered="#{ciudadanoBean.isRendered(18)}"/>
+                    </h:panelGrid>
+                    <center>
+                    <p:commandButton actionListener="#{ciudadanoBean.upload}" value="Subir"/>
+                    </center>
+                </p:panel>
+
+            </p:tab>
+        </p:wizard>
+    </h:form>
+    <p:dialog widgetVar="dlg" showEffect="fade">
+        <h:form prependId="false">
+            <h:panelGrid columns="2">
+                <h:outputLabel for="title" value="Categoria:" />
+                <p:autoComplete maxResults="10" effect="fade" forceSelection="true" dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod19}" id="title" value="#{ciudadanoBean.denuncia.categoria}" />
+                <f:facet name="footer">
+                    <p:commandButton value="Add" actionListener="#{ciudadanoBean.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
+                    <p:commandButton value="Cancel" onclick="return cancel()" />
+                </f:facet>
+            </h:panelGrid>
+
+            <h:inputHidden id="lat" value="#{ciudadanoBean.denuncia.lat}" />
+            <h:inputHidden id="lng" value="#{ciudadanoBean.denuncia.lng}" />
+        </h:form>
+    </p:dialog>
+
+    <p:growl id="messages" showDetail="true" />
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA7jEs0WmiaJRUxGBvxGogp4x_Fzcatjqc&amp;callback=initMap" ></script>
+
+
+    <script type="text/javascript">
+        var currentMarker = null;
+
+        function handlePointClick(event) {
+            if(currentMarker === null) {
+                document.getElementById('lat').value = event.latLng.lat();
+                document.getElementById('lng').value = event.latLng.lng();
+
+                currentMarker = new google.maps.Marker({
+                    position:new google.maps.LatLng(event.latLng.lat(), event.latLng.lng())
+                });
+
+                PF('map').addOverlay(currentMarker);
+
+                PF('dlg').show();
+            }
+        }
+
+        function markerAddComplete() {
+            var title = document.getElementById('title');
+            currentMarker.setTitle(title.value);
+            currentMarker.setDraggable(true);
+            title.value = "";
+
+            currentMarker = null;
+            PF('dlg').hide();
+        }
+
+        function cancel() {
+            PF('dlg').hide();
+            currentMarker.setMap(null);
+            currentMarker = null;
+
+            return false;
+        }
+    </script>
+</h:body>
+</html>
