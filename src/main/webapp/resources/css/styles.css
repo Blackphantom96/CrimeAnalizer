@@ -373,7 +373,7 @@ a:focus {
 }
 
 .hero-carousel .carousel-inner .item-1 {
-  background-image: url("../images/hero-1.jpg");
+  background-image: url("/resources/images/hero-1.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -381,7 +381,7 @@ a:focus {
 }
 
 .hero-carousel .carousel-inner .item-2 {
-  background-image: url("../images/hero-2.jpg");
+  background-image: url("/resources/images/hero-2.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -389,7 +389,7 @@ a:focus {
 }
 
 .hero-carousel .carousel-inner .item-3 {
-  background-image: url("../images/hero-3.jpg");
+  background-image: url("/resources/images/hero-3.jpg");
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -530,7 +530,7 @@ a:focus {
 
 /* ======= Testimonials Section ======= */
 .testimonials-section {
-  background: #40babd url("../images/map.png") no-repeat center center;
+  background: #40babd url("/resources/images/map.png") no-repeat center center;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
@@ -945,7 +945,7 @@ a:focus {
 .contact-section {
   padding-top: 90px;
   padding-bottom: 90px;
-  background: #494d55 url("../images/map.png") no-repeat center center;
+  background: #494d55 url("/resources/images/map.png") no-repeat center center;
   color: #fff;
 }
 
