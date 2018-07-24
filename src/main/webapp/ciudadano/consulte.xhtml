@@ -15,8 +15,9 @@ and open the template in the editor.
     <title>Ciudadano - Consulte</title>
 </h:head>
 <h:body>
-        <h:form >
-            <h:panelGrid columns="2">
+    <h:form >
+        <center>
+            <h:panelGrid columns="2" style="margin: 0 auto">
                 <p:outputLabel for="@next" value="Departamento: " />
                 <p:selectOneMenu id="departamento" value="#{ciudadanoBean.denuncia.departamento}" filter="true">
                     <p:ajax listener="#{ciudadanoBean.onDepartamentoChange}" update="municipio" />
@@ -35,8 +36,7 @@ and open the template in the editor.
                 <p:outputLabel for="@next" value="Hora: "/>
                 <p:calendar value="#{ciudadanoBean.hora}" pattern="HH:mm" timeOnly="true" required="true"/>
             </h:panelGrid>
-
-
-        </h:form>
+        </center>
+    </h:form>
 </h:body>
 </html>

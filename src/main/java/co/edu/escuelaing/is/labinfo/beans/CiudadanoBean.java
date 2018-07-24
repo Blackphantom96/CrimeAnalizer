@@ -3,7 +3,7 @@ package co.edu.escuelaing.is.labinfo.beans;
 import co.edu.escuelaing.is.labinfo.entities.Denuncia;
 import co.edu.escuelaing.is.labinfo.utiles.Utiles;
 
-import javax.enterprise.context.SessionScoped;
+import javax.faces.bean.SessionScoped;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.ApplicationScoped;
 import java.io.Serializable;
