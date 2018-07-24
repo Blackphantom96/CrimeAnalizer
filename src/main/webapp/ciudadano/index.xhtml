@@ -12,9 +12,10 @@ and open the template in the editor.
       xmlns:p="http://primefaces.org/ui"
       xmlns:c="http://java.sun.com/jsp/jstl/core">
 <h:head>
-    <title>Ciudadano - Denuncia</title>
+    <title>Ciudadano</title>
 </h:head>
 <h:body>
+    <h:form>
     <p:outputLabel value="HEADER"/>
     <br/>
     <p:outputLabel value="PORQUE"/>
@@ -24,13 +25,13 @@ and open the template in the editor.
     <h:panelGrid columns="2">
         <p:panel header="Consulta">
             Esta opción te permite revisar la seguridad de un lugar a una hora determinada previniendo que te expongas de manera innecesaria.
-            <p:commandButton value="Consultar!"/>
+            <p:commandButton value="Consultar!" ajax="false" action="consulte.xhtml?faces-redirect=true"/>
         </p:panel>
         <p:panel header="Denuncia">
             Esta opción te permite realizar denuncias las cuales la Policia puede ver en tiempo real para agilizar el proceso interno de la Policia.
-            <p:commandButton value="Denunciar!"/>
+            <p:commandButton value="Denunciar!" action="denuncie.xhtml?faces-redirect=true"/>
         </p:panel>
     </h:panelGrid>
-
+    </h:form>
 </h:body>
 </html>
