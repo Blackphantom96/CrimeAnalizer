@@ -80,6 +80,12 @@ public class CiudadanoBean implements Serializable {
         Utiles.armarDic();
         denuncia=new Denuncia();
     }
+    public void load() throws SQLException {
+        Utiles.getDepartamentos();
+        Utiles.getCategorias();
+        Utiles.armarDic();
+        denuncia=new Denuncia();
+    }
     public Denuncia getDenuncia() {
         return denuncia;
     }

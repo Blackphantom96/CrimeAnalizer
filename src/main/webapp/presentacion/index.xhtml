@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:c="http://java.sun.com/jsp/jstl/core">
+<h:head>
+    <title>CrimeAnalizer</title>
+    <!-- Meta -->
+    <meta charset="utf-8"></meta>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge"></meta>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"></meta>
+    <meta name="description" content="Bootstrap 4 landing page template for developers and startups"></meta>
+    <meta name="author" content="Xiaoying Riley at 3rd Wave Media"></meta>
+    <link rel="shortcut icon" href="favicon.ico"></link>
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800' rel='stylesheet' type='text/css'></link>
+    <!-- FontAwesome JS -->
+    <script  src="https://use.fontawesome.com/releases/v5.1.0/js/all.js" integrity="sha384-3LK/3kTpDE/Pkp8gTNp2gR/2gOiwQ6QaO7Td0zV76UFJVhqLl4Vl3KL1We6q6wR9" crossorigin="anonymous"></script>
+
+</h:head>
+
+<h:body>
+    <h:form>
+    <p:remoteCommand name="onload" action="#{ciudadanoBean.load}" autoRun="true" />
+    </h:form>
+    <h:outputStylesheet library="css" name="styles.css" />
+    <h:outputStylesheet library="plugins" name="bootstrap/css/bootstrap.min.css"/>
+<!-- ******HEADER****** -->
+<header id="header" class="header">
+    <div class="container">
+        <h1 class="logo">
+            <a class="scrollto" href="#hero">
+                <span class="logo-icon-wrapper"><img class="logo-icon" src="/resources//images/logo-icon.svg" alt="icon"/></span>
+                <span class="text"><span class="highlight">Crime</span>Analizer</span></a>
+        </h1><!--//logo-->
+        <nav class="main-nav navbar-expand-md float-right navbar-inverse" role="navigation">
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbar-collapse">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+            </button><!--//nav-toggle-->
+
+            <div id="navbar-collapse" class="navbar-collapse collapse">
+                <ul class="nav navbar-nav">
+                    <li class="nav-item"><a class="active nav-link scrollto" href="#about">Descripción</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#porque">¿Porque?</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#ventajas">Ventajas</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#tecnologias">Tecnologías</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#team">Nosotros</a></li>
+                    <li class="nav-item"><a class="nav-link scrollto" href="#contact">Accede</a></li>
+                </ul><!--//nav-->
+            </div><!--//navabr-collapse-->
+        </nav><!--//main-nav-->
+    </div><!--//container-->
+</header><!--//header-->
+
+<div id="hero" class="hero-section">
+
+    <div id="hero-carousel" class="hero-carousel carousel carousel-fade slide" data-ride="carousel" data-interval="10000">
+
+        <div class="figure-holder-wrapper">
+            <div class="container">
+                <div class="row justify-content-end">
+                    <div class="figure-holder">
+                        <img class="figure-image img-fluid" src="/resources//images/imac.png" alt="image" />
+                    </div><!--//figure-holder-->
+                </div><!--//row-->
+            </div><!--//container-->
+        </div><!--//figure-holder-wrapper-->
+
+        <!-- Indicators -->
+        <ol class="carousel-indicators">
+            <li class="active" data-slide-to="0" data-target="#hero-carousel"></li>
+            <li data-slide-to="1" data-target="#hero-carousel"></li>
+            <li data-slide-to="2" data-target="#hero-carousel"></li>
+        </ol>
+
+        <!-- Wrapper for slides -->
+        <div class="carousel-inner">
+
+            <div class="carousel-item item-1 active">
+                <div class="item-content container">
+                    <div class="item-content-inner">
+
+                        <h2 class="heading">CrimeAnalizer es una aplicación que permite denunciar delitos <br class="d-none d-md-block"/> ocurridos en Colombia</h2>
+                        <p class="intro">Te permite realizar denuncias de manera sencilla y rápida de delitos que ocurren alrededor del territorio nacional.</p>
+                        <a class="btn btn-primary btn-cta scrollto" href="#ventajas">Ir a aplicación</a>
+
+                    </div><!--//item-content-inner-->
+                </div><!--//item-content-->
+            </div><!--//item-->
+
+            <div class="carousel-item item-2">
+                <div class="item-content container">
+                    <div class="item-content-inner">
+
+                        <h2 class="heading">CrimeAnalizer le permite a la Policía Nacional visualizar los datos de manera sencilla</h2>
+                        <p class="intro">De manera que se puedan tomar mejores decisiones en la lucha contra la delincuencia.</p>
+                        <a class="btn btn-primary btn-cta" href="#porque">Conoce más</a>
+
+                    </div><!--//item-content-inner-->
+                </div>
+            </div><!--//item-->
+
+            <div class="carousel-item item-3">
+                <div class="item-content container">
+                    <div class="item-content-inner">
+
+                        <h2 class="heading">CrimeAnalizer mantiene una buena calidad de la información</h2>
+                        <p class="intro">De forma que también pueden ser utilizados por terceros para encontrar patrones de manera efectiva.</p>
+                        <a class="btn btn-primary btn-cta" href="#ventajas">Ir a la aplicación</a>
+
+                    </div><!--//item-content-inner-->
+                </div>
+            </div><!--//item-->
+        </div><!--//carousel-inner-->
+
+    </div><!--//carousel-->
+</div><!--//hero-->
+
+<div id="about" class="about-section">
+    <div class="container text-center">
+        <h2 class="section-title">Descripción</h2>
+        <p class="intro">CrimeAnalizer es una propuesta por parte de estudiantes de la Escuela Colombiana de Ingeniería Julio Garavito para ayudar a reducir los crímenes y aumentar la participación de los ciudadanos al momento de realizar denuncias. <br /><br />
+
+            CrimeAnalizer tiene el objetivo de ayudar a la Policía Nacional y a los ciudadanos. <br /><br />
+
+            Para el caso de los ciudadanos les permite reportar delitos y obtener cifras con datos relevantes al área en el que se encuentran o de un área especifica: Desde obtener un ranking de los barrios más peligrosos en la ciudad hasta obtener advertencias de la hora o lugar en donde se encuentran, todo esto de manera interactiva y amigable para el usuario. <br /><br />
+
+            Por otra parte, en el caso de la Policía Nacional ya que los ciudadanos tienen la posibilidad de reportar delitos, se les facilita la recolección de estos datos y se reduce el déficit de denuncias. <br /><br />
+
+            Estos datos se complementan con la geolocalización exacta tomada de las APIs ofrecidas por Google que complementa las visualizaciones y el modelo de predicción, ambos en tiempo real.
+            <br/>
+            <br/>
+            <br/>
+            <strong>CrimeAnalizer tiene una base de datos con mas de 3.500.000 reportes los cuales fueron limpiados y organizados en un solo lugar. <br/> <br/>
+                Los datos fueron obtenidos de la <a href="https://www.policia.gov.co/grupo-información-criminalidad/estadistica-delictiva"  >pagina estadistica delictiva la Policia Nacional</a> (2010-2018) y la <a href="https://www.datos.gov.co"> pagina de datos abiertos del MinTic. </a></strong>
+        </p>
+    </div><!--//container-->
+</div><!--//about-section-->
+
+<div id="porque" class="about-section contact-section">
+    <div class="container text-center">
+        <h2 class="section-title">¿Por que usar CrimeAnalizer?</h2>
+        <p class="contact-content">Actualmente existen dificultades en cuanto a la calidad de los datos tomados de las denuncias de los ciudadanos, por lo que estas son algunas situaciones que se pudieron observar.</p>
+        <div class="items-wrapper row">
+            <div class="item col-md-6 col-12">
+                <div class="item-inner">
+                    <div class="figure-holder">
+                        <img class="figure-image" src="/resources//images/datos-sucios-1.png" alt="image"/>
+                    </div><!--//figure-holder-->
+                    <h3 class="item-title">Redundancia en los datos</h3>
+                    <div class="item-desc">
+                        Este tipo de situaciones dificultan el análisis de datos al verse como datos distintos, a pesar de ser equivalentes.
+                    </div><!--//item-desc-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+            <div class="item col-md-6 col-12">
+                <div class="item-inner">
+                    <div class="figure-holder">
+                        <img class="figure-image" src="/resources//images/datos-sucios-2.png" alt="image"/>
+                    </div><!--//figure-holder-->
+                    <h3 class="item-title">Formato de fecha</h3>
+                    <div class="item-desc">Estas situaciones impiden una interpretación correcta de los datos al verse diferentes formatos en la fecha.</div><!--//item-desc-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+            <!-- <div class="item col-md-4 col-12"> -->
+            <!--     <div class="item-inner"> -->
+            <!--         <div class="figure-holder"> -->
+            <!--             <img class="figure-image" src="assets/images/figure-3.png" alt="image"> -->
+            <!--         </div><\!//figure-holder-\-> -->
+            <!--         <h3 class="item-title">Screenshot 3</h3> -->
+            <!--         <div class="item-desc">Caso 3.</div><\!//item-desc-\-> -->
+            <!--     </div><\!//item-inner-\-> -->
+            <!-- </div><\!//item-\-> -->
+        </div><!--//items-wrapper-->
+    </div><!--//container-->
+</div><!--//about-section-->
+
+<!-- <div id="testimonials" class="testimonials-section"> -->
+<!--     <div class="container"> -->
+<!--         <h2 class="section-title text-center">Many Happy Customers</h2> -->
+<!--         <div class="item mx-auto"> -->
+<!--             <div class="profile-holder"> -->
+<!--                 <img class="profile-image" src="assets/images/profile-1.png" alt="profile"> -->
+<!--             </div> -->
+<!--             <div class="quote-holder"> -->
+<!--                 <blockquote class="quote"> -->
+<!--                     <p>Testimonial goes here Donec felis odio, sagittis eu cursus ac, porttitor eu purus. In a bibendum dui. Nullam id est sed felis rutrum tincidunt eu nec nisi morbi euismod semper neque sed lobortis.</p> -->
+<!--                     <div class="quote-source"> -->
+<!--                         <span class="name">@JohnK,</span> -->
+<!--                         <span class="meta">San Francisco</span> -->
+<!--                     </div><\!//quote-source-\-> -->
+<!--                 </blockquote> -->
+<!--             </div><\!//quote-holder-\-> -->
+<!--         </div><\!//item-\-> -->
+<!--         <div class="item item-reversed mx-auto"> -->
+<!--             <div class="profile-holder"> -->
+<!--                 <img class="profile-image" src="assets/images/profile-2.png" alt="profile"> -->
+<!--             </div> -->
+<!--             <div class="quote-holder"> -->
+<!--                 <blockquote class="quote"> -->
+<!--                     <p>Testimonial goes here fermentum sed pharetra in, aliquet sodales quam. Ut sed turpis quis orci viverra aliquet interdum ut ipsum. </p> -->
+<!--                     <div class="quote-source"> -->
+<!--                         <span class="name">@LisaWhite,</span> -->
+<!--                         <span class="meta">London</span> -->
+<!--                     </div><\!//quote-source-\-> -->
+<!--                 </blockquote> -->
+<!--             </div><\!//quote-holder-\-> -->
+<!--         </div><\!//item-\-> -->
+<!--         <div class="item mx-auto"> -->
+<!--             <div class="profile-holder"> -->
+<!--                 <img class="profile-image" src="assets/images/profile-3.png" alt="profile"> -->
+<!--             </div> -->
+<!--             <div class="quote-holder"> -->
+<!--                 <blockquote class="quote"> -->
+<!--                     <p>Testimonial goes here vestibulum non hendrerit lorem, luctus tincidunt erat. Sed pharetra aliquam posuere. Pellentesque sollicitudin.</p> -->
+<!--                     <div class="quote-source"> -->
+<!--                         <span class="name">@MattH,</span> -->
+<!--                         <span class="meta">Berlin</span> -->
+<!--                     </div><\!-//quote-source-\-> -->
+<!--                 </blockquote> -->
+<!--             </div><\!-//quote-holder-\-> -->
+<!--         </div><\!-//item-\-> -->
+<!--         <div class="item item-reversed mx-auto"> -->
+<!--             <div class="profile-holder"> -->
+<!--                 <img class="profile-image" src="assets/images/profile-4.png" alt="profile"> -->
+<!--             </div> -->
+<!--             <div class="quote-holder"> -->
+<!--                 <blockquote class="quote"> -->
+<!--                     <p>Testimonial goes here lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis</p> -->
+<!--                      <div class="quote-source"> -->
+<!--                         <span class="name">@RyanW,</span> -->
+<!--                         <span class="meta">Paris</span> -->
+<!--                     </div><\!-//quote-source-\-> -->
+<!--                 </blockquote> -->
+
+<!--             </div><\!-//quote-holder-\-> -->
+<!--         </div><\!-//item-\-> -->
+<!--     </div><\!-//container-\-> -->
+<!-- </div><\!-//testimonials-\-> -->
+
+<!-- <div id="features" class="features-section"> -->
+<!--     <div class="container text-center"> -->
+<!--         <h2 class="section-title">Discover Features</h2> -->
+<!--         <p class="intro">You can use this section to list your product features. The screenshots used here were taken from <a href="https://www.uxfordev.com/" target="_blank">Bootstrap admin theme AppKit</a></p> -->
+
+<!--         <div class="tabbed-area row"> -->
+
+<!--             <\!- Nav tabs -\-> -->
+<!--             <div class="feature-nav nav nav-pill flex-column col-lg-4 col-md-6 col-12 order-0 order-md-1" role="tablist" aria-orientation="vertical"> -->
+<!--                  <a class="nav-link active mb-lg-3" href="#feature-1" aria-controls="feature-1" data-toggle="pill" role="tab" aria-selected="true"><i class="fas fa-magic"></i>20+ Use Case-based App Pages</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-2" aria-controls="feature-2" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-cubes"></i>100+ Components and Widgets</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-3" aria-controls="feature-3" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-chart-bar"></i>Useful Chart Libraries</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-4" aria-controls="feature-4" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-code"></i>Valid HTML5 + CSS3</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-5" aria-controls="feature-5" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-rocket"></i>Built on Bootstrap</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-6" aria-controls="feature-6" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-mobile-alt"></i>Fully Responsive</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-7" aria-controls="feature-7" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-star"></i>Beautiful UI</a> -->
+<!--                  <a class="nav-link mb-lg-3" href="#feature-8" aria-controls="feature-8" data-toggle="pill" role="tab" aria-selected="false"><i class="fas fa-heart"></i>Free Updates &amp; Support</a>                    -->
+<!--             </div> -->
+
+<!--             <\!- Tab panes -\-> -->
+<!--             <div class="feature-content tab-content col-lg-8 col-md-6 col-12 order-1 order-md-0"> -->
+<!--                 <div role="tabpanel" class="tab-pane fade show active" id="feature-1"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-1.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-2"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-2.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-3"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-3.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-4"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-4.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-5"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-5.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-6"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-6.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-7"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-7.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+<!--                 <div role="tabpanel" class="tab-pane fade" id="feature-8"> -->
+<!--                     <a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank"><img class="img-fluid" src="assets/images/feature-8.png" alt="screenshot" ></a> -->
+<!--                 </div> -->
+
+<!--             </div><\!-//feature-content-\-> -->
+
+
+<!--         </div><\!-//tabbed-area-\-> -->
+
+<!--     </div><\!-//container-\-> -->
+<!-- </div><\!-//features-\-> -->
+
+<div class="team-section" id="ventajas">
+    <div class="container text-center">
+        <h2 class="section-title">Ventajas</h2>
+        <div class="story">
+            <p>Cada forma de uso para cada tipo de usuario tiene importantes ventajas.</p>
+        </div>
+        <div class="members-wrapper row">
+            <div class="item col-md-6 col-12">
+                <div class="item-inner">
+                    <div class="profile mb-2">
+                        <!-- <img class="profile-image" src="" alt="Ciudadano" /> -->
+                        <i class="profile-image fas fa-user"></i>
+                    </div>
+
+                    <div class="member-content">
+                        <h3 class="member-name">Ciudadano</h3>
+                        <!-- <div class="member-title">Full-Stack Designer</div> -->
+                        <div class="member-desc">
+                            <p>Aplicación para el ciudadano.</p>
+                            <a class="btn btn-primary btn-cta" href="#" target="_blank">Ir a la aplicación ciudadano</a>
+                        </div><!--//member-desc-->
+                    </div><!--//member-content-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+            <div class="item col-md-6 col-12">
+                <div class="item-inner">
+                    <div class="profile mb-2">
+                        <img class="profile-image" src="/resources//images/policia-logo.svg" alt="Policía Nacional" />
+                    </div>
+
+                    <div class="member-content">
+                        <h3 class="member-name">Policía Nacional</h3>
+                        <!-- <div class="member-title">Full-Stack Developer</div> -->
+                        <div class="member-desc">
+                            <p>Aplicación para la Policía Nacional.</p>
+                            <a class="btn btn-primary btn-cta" href="#" target="_blank">Ir a la aplicación Policía Nacional</a>
+                        </div><!--//member-desc-->
+                    </div><!--//member-content-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+        </div><!--//members-wrapper-->
+    </div>
+</div><!--//team-section-->
+
+<div id="tecnologias" class="about-section">
+    <div class="container text-center">
+        <h2 class="section-title">Tecnologías</h2>
+        <p class="intro">Las tecnologías que usamos son:</p>
+        <ul class="technologies list-inline">
+            <!-- <li class="list-inline-item"><img src="assets/images/logo-html5.svg" alt="HTML5"></li> -->
+            <!-- <li class="list-inline-item"><img src="assets/images/logo-css3.svg" alt="CSS3"></li> -->
+            <!-- <li class="list-inline-item"><img src="assets/images/logo-bootstrap.svg" alt="Bootstrap"></li> -->
+            <!-- <li class="list-inline-item"><img src="assets/images/logo-sass.svg" alt="Sass"></li> -->
+            <!-- <li class="list-inline-item"><img src="assets/images/logo-jquery.svg" alt="jQuery"></li> -->
+            <li class="list-inline-item"><img style="width: 40px;" src="/resources//images/heroku.svg" title="Heroku" alt="Heroku"/></li>
+            <li class="list-inline-item"><img style="width: 60px;" src="/resources//images/mysql.png" title="MySQL" alt="MySQL"/></li>
+            <li class="list-inline-item"><img style="width: 120px;" src="/resources//images/primefaces.svg" title="Primefaces" alt="Primefaces"/></li>
+            <li class="list-inline-item"><img style="width: 120px;" src="/resources//images/open-refine.png" title="OpenRefine" alt="OpenRefine"/></li>
+            <li class="list-inline-item"><img style="width: 45px;" src="/resources//images/power-bi.svg" title="Power BI" alt="Power BI"/>Power BI</li>
+            <li class="list-inline-item"><img style="width: 100px;" src="/resources//images/jsf.png" title="JavaServer Faces" alt="JavaServer Faces"/></li>
+            <li class="list-inline-item"><img style="width: 120px;" src="/resources//images/tableau.png" title="Tableau" alt="Tableau"/></li>
+        </ul>
+    </div><!--//container-->
+</div>
+
+<div class="team-section" id="team">
+    <div class="container text-center">
+        <h2 class="section-title">Nosotros</h2>
+        <div class="story">
+            <p>Somos estudiantes de la Escuela Colombiana de Ingeniería Julio Garavito, somos apasionados por la tecnología, la programación y la innovación.</p>
+        </div>
+        <div class="members-wrapper row">
+            <div class="item col-md-4 col-12">
+                <div class="item-inner">
+                    <div class="profile mb-2">
+                        <img class="profile-image" src="/resources//images/juan-profile.jpg" alt="Juan Moreno" />
+                    </div>
+
+                    <div class="member-content">
+                        <h3 class="member-name">Juan Andrés Moreno Silva</h3>
+                        <div class="member-title">Estudiante de Ingeniería de Sistemas</div>
+                        <ul class="social list-inline">
+                            <li class="list-inline-item"><a href="mailto:juan.moreno-s@mail.escuelaing.edu.co" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                            <li class="list-inline-item"><a class="github" href="https://github.com/Blackphantom96" target="_blank"><i class="fab fa-github"></i></a></li>
+                        </ul>
+                        <div class="member-desc">
+                            <p></p>
+                        </div><!--//member-desc-->
+                    </div><!--//member-content-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+            <div class="item col-md-4 col-12">
+                <div class="item-inner">
+                    <div class="profile mb-2">
+                        <img class="profile-image" src="/resources//images/anzola-profile.jpg" alt="Alejandro Anzola" />
+                    </div>
+
+                    <div class="member-content">
+                        <h3 class="member-name">Alejandro Anzola Ávila</h3>
+                        <div class="member-title">Estudiante de Ingeniería de Sistemas</div>
+                        <ul class="social list-inline">
+                            <li class="list-inline-item"><a href="mailto:alejandro.anzola@mail.escuelaing.edu.co" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                            <li class="list-inline-item"><a class="github" href="https://github.com/SkinMan95" target="_blank"><i class="fab fa-github"></i></a></li>
+                        </ul>
+                        <div class="member-desc">
+                            <p></p>
+                        </div><!--//member-desc-->
+                    </div><!--//member-content-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+
+            <div class="item col-md-4 col-12">
+                <div class="item-inner">
+                    <div class="profile mb-2">
+                        <img class="profile-image" src="/resources//images/daniel-profile.jpg" alt="Alejandro Anzola" />
+                    </div>
+
+                    <div class="member-content">
+                        <h3 class="member-name">Daniel Díaz López</h3>
+                        <div class="member-title">Profesor en la facultad de Ingeniería de Sistemas</div>
+                        <ul class="social list-inline">
+                            <li class="list-inline-item"><a href="mailto:daniel.diaz@escuelaing.edu.co" target="_blank"><i class="fas fa-envelope"></i></a></li>
+                        </ul>
+                        <div class="member-desc">
+                            <p></p>
+                        </div><!--//member-desc-->
+                    </div><!--//member-content-->
+                </div><!--//item-inner-->
+            </div><!--//item-->
+        </div><!--//members-wrapper-->
+    </div>
+</div><!--//team-section-->
+
+<!-- <div id="pricing" class="pricing-section"> -->
+<!--     <div class="container text-center"> -->
+<!--         <h2 class="section-title">Pricing</h2> -->
+<!--         <div class="intro">AppKit Landing's future updates are 100% FREE for existing customers</div> -->
+<!--         <div class="pricing-wrapper row"> -->
+<!--             <div class="item item-1 col-md-4 col-12"> -->
+<!--                 <div class="item-inner"> -->
+<!--                     <h3 class="item-heading">FREE<br><span class="item-heading-desc">(CC BY 3.0)</span></h3> -->
+<!--                     <div class="price-figure"> -->
+<!--                         <span class="currency">$</span><span class="number">0</span> -->
+<!--                     </div><\!-//price-figure-\-> -->
+<!--                     <ul class="list-unstyled mb-3"> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Single installation</li> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Multiple installations</li> -->
+<!--                         <li class="mb-2"><i class="fas fa-times"></i> Use without attribution link</li> -->
+<!--                     </ul> -->
+<!--                     <div class="mb-3"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank">License Details</a></div> -->
+<!--                     <a class="btn btn-cta" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/">Get it now</a> -->
+
+<!--                 </div><\!-//item-inner-\-> -->
+<!--             </div><\!-//item-\-> -->
+<!--             <div class="item item-2 col-md-4 col-12"> -->
+<!--                 <div class="item-inner"> -->
+<!--                     <h3 class="item-heading">Single Application<br><span class="item-heading-desc">(Commercial License)</span></h3> -->
+
+<!--                     <div class="price-figure"> -->
+<!--                         <span class="currency">$</span><span class="number">29</span> -->
+<!--                     </div><\!-//price-figure-\-> -->
+<!--                     <ul class="list-unstyled mb-3"> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Single installation</li> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-times"></i> Multiple installations</li> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Use without attribution link</li> -->
+<!--                     </ul> -->
+<!--                     <div class="mb-3"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank">License Details</a></div> -->
+<!--                     <a class="btn btn-cta" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/">Get it now</a> -->
+
+<!--                 </div><\!-//item-inner-\-> -->
+<!--             </div><\!-//item-\-> -->
+
+<!--             <div class="item item-3 col-md-4 col-12"> -->
+<!--                 <div class="item-inner"> -->
+<!--                     <h3 class="item-heading">Multiple Applications<br><span class="item-heading-desc">(Commercial License)</span></h3> -->
+<!--                     <div class="price-figure"> -->
+<!--                         <span class="currency">$</span><span class="number">99</span> -->
+<!--                     </div><\!-//price-figure-\-> -->
+<!--                     <ul class="list-unstyled mb-3"> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Single installation</li> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Multiple installations</li> -->
+<!-- 	                        <li class="mb-2"><i class="fas fa-check"></i> Use without attribution link</li> -->
+<!--                     </ul> -->
+<!--                     <div class="mb-3"><a href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank">License Details</a></div> -->
+<!--                     <a class="btn btn-cta" href="https://themes.3rdwavemedia.com/bootstrap-templates/startup/appkit-landing-free-bootstrap-theme-for-developers-and-startups/" target="_blank">Get it now</a> -->
+
+<!--                 </div><\!-//item-inner-\-> -->
+<!--             </div><\!-//item-\-> -->
+<!--         </div><\!-//pricing-wrapper-\-> -->
+
+<!--     </div><\!-//container-\-> -->
+<!-- </div><\!-//pricing-section-\-> -->
+<div id="contact" class="contact-section">
+    <div class="container text-center">
+        <h2 class="section-title">Accede</h2>
+        <div class="contact-content">
+            <p>Accede a la aplicación con un solo clic.</p>
+
+        </div>
+        <a class="btn btn-cta btn-primary scrollto" href="#ventajas">Accede</a>
+
+    </div><!--//container-->
+</div><!--//contact-section-->
+
+<footer class="footer text-center">
+    <div class="container">
+        <!--/* This template is released under the Creative Commons Attribution 3.0 License. Please keep the attribution link below when using for your own project. Thank you for your support. :) If you'd like to use the template without the attribution, you can buy the commercial license via our website: themes.3rdwavemedia.com */-->
+        <!-- <small class="copyright">Designed with <i class="fas fa-heart"></i> in Colombia </small> -->
+        <small class="copyright">Made with <i class="fas fa-heart"></i> in 🇨🇴</small>
+    </div><!--//container-->
+</footer>
+
+<!-- Javascript -->
+<script type="text/javascript" src="/resources//plugins/jquery-3.3.1.min.js"></script>
+<script type="text/javascript" src="/resources//plugins/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="/resources//plugins/jquery-scrollTo/jquery.scrollTo.min.js"></script>
+<script type="text/javascript" src="/resources//js/main.js"></script>
+
+</h:body>
+</html> 
+

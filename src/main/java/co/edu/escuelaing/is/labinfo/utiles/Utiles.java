@@ -82,17 +82,20 @@ public class Utiles {
     }
 
     public static void armarDic() throws SQLException {
-        columnValues = new HashMap<>();
-        getConection();
-        for(String i: CiudadanoBean.COLUMNAS)if(!i.equals("departamento") && !i.equals("municipio") && !i.equals("edad")){
-            System.out.println("Creando cache de: "+i);
-            columnValues.put(i,new ArrayList<>());
-            ResultSet res = makeQuery(i,i+"s","true");
-            while (res.next()){
-                columnValues.get(i).add(res.getString(i));
-            }
+        if(columnValues==null) {
+            columnValues = new HashMap<>();
+            getConection();
+            for (String i : CiudadanoBean.COLUMNAS)
+                if (!i.equals("departamento") && !i.equals("municipio") && !i.equals("edad")) {
+                    System.out.println("Creando cache de: " + i);
+                    columnValues.put(i, new ArrayList<>());
+                    ResultSet res = makeQuery(i, i + "s", "true");
+                    while (res.next()) {
+                        columnValues.get(i).add(res.getString(i));
+                    }
+                }
+            conection.close();
         }
-        conection.close();
     }
 
     public static Map<String,List<String>> getColumnValues() throws SQLException {
