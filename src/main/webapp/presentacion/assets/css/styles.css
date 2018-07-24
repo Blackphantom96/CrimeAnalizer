@@ -454,6 +454,9 @@ a:focus {
   color: #616670;
 }
 
+#about p {
+  text-align: justify;
+}
 .technologies {
   margin-bottom: 90px;
 }
