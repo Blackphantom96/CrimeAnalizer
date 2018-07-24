@@ -351,6 +351,10 @@ a:focus {
   width: 100%;
 }
 
+.figure-image {
+    border-radius: 20px;
+}
+
 .hero-section .figure-holder .figure-image {
   position: absolute;
   bottom: 0;
@@ -429,7 +433,9 @@ a:focus {
 }
 
 .about-section .items-wrapper {
-  margin-bottom: 60px;
+    margin-bottom: 60px;
+    background: rgba(255, 255, 255, 0.65);
+    border-radius: 25px;
 }
 
 .about-section .items-wrapper .figure-holder {
@@ -813,6 +819,7 @@ a:focus {
 .team-section .profile-image {
   width: 120px;
   height: 120px;
+  border-radius: 50%;
 }
 
 .team-section .members-wrapper {
