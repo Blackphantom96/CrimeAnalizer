@@ -3,6 +3,7 @@ package co.edu.escuelaing.is.labinfo.entities;
 import co.edu.escuelaing.is.labinfo.utiles.Utiles;
 
 import java.io.Serializable;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -10,9 +11,9 @@ import java.sql.*;
 
 public class Denuncia implements Serializable {
     private int id,codigo_dane,edad;
-    private Date fecha;
+    private Date fecha,hora;
     private Double lat,lng;
-    private String departamento,municipio,dia,hora,zona,arma_empleada,movil_victima,barrio,movil_agresor,sexo,estado_civil,escolaridad,clase_de_sitio,cantidad,profesion,pais_de_nacimiento,clase_de_empleado,clase,marca,linea,modelo,color,profesiones,delito,clase_empresa,descripcion_conducta,categoria;
+    private String departamento,municipio,dia,zona,arma_empleada,movil_victima,barrio,movil_agresor,sexo,estado_civil,escolaridad,clase_de_sitio,cantidad,profesion,pais_de_nacimiento,clase_de_empleado,clase,marca,linea,modelo,color,profesiones,delito,clase_empresa,descripcion_conducta,categoria;
     public Denuncia(){
 
     }
@@ -89,11 +90,11 @@ public class Denuncia implements Serializable {
         this.dia = dia;
     }
 
-    public String getHora() {
+    public Date getHora() {
         return hora;
     }
 
-    public void setHora(String hora) {
+    public void setHora(Date hora) {
         this.hora = hora;
     }
 
@@ -281,4 +282,14 @@ public class Denuncia implements Serializable {
         this.categoria = categoria;
     }
 
+
+    @Override
+    public String toString() {
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        SimpleDateFormat sdfh = new SimpleDateFormat("k:m");
+
+        return "INSERT INTO DatosAlaU " +
+                "(fecha, departamento, municipio, dia, hora, zona, arma_empleada, movil_victima, codigo_dane, barrio, lng, lat, movil_agresor, edad, sexo, estado_civil, escolaridad, clase_de_sitio, cantidad, profesion, pais_de_nacimiento, clase_de_empleado, clase, marca, linea, modelo, color, profesiones, categoria) VALUES " +
+                "('"+sdf.format(fecha)+"','"+ departamento+"','"+ municipio+"','"+ dia+"','"+ sdfh.format(hora)+"','"+ zona+"','"+ arma_empleada+"','"+ movil_victima+"','"+ codigo_dane+"','"+ barrio+"','"+ lng+"','"+ lat+"','"+ movil_agresor+"','"+ edad+"','"+ sexo+"','"+ estado_civil+"','"+ escolaridad+"','"+ clase_de_sitio+"','"+ cantidad+"','"+ profesion+"','"+ pais_de_nacimiento+"','"+ clase_de_empleado+"','"+ clase+"','"+ marca+"','"+ linea+"','"+ modelo+"','"+ color+"','"+ profesiones+"','"+ categoria+"');";
+    }
 }

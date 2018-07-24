@@ -10,8 +10,8 @@
 
     <h:form id="table">
         <p:wizard  flowListener="#{ciudadanoBean.onFlowProcess}">
-            <p:tab title="1">
-                <p:panel header="1">
+            <p:tab title="Informacion Basica">
+                <p:panel header="">
                     <h:panelGrid columns="4">
                         <p:outputLabel value="Fecha: "/> <p:calendar required="true" value="#{ciudadanoBean.denuncia.fecha}"/>
                         <p:outputLabel value="Hora: "/> <p:calendar required="true" value="#{ciudadanoBean.denuncia.hora}" pattern="HH:mm" timeOnly="true"/>
@@ -32,8 +32,8 @@
                     </h:panelGrid>
                 </p:panel>
             </p:tab>
-            <p:tab title="2">
-                <p:panel header="2">
+            <p:tab title="Ubicacion y categoria">
+                <p:panel header="">
                     <p:gmap id="gmap" center="#{ciudadanoBean.cordenada}" zoom="14" type="ROADMAP" style="width:100%;height:400px"
                             model="#{ciudadanoBean.emptyModel}" onPointClick="handlePointClick(event);" widgetVar="map" />
                     <br/>
@@ -42,32 +42,41 @@
                     </center>
                 </p:panel>
             </p:tab>
-            <p:tab title="3">
+            <p:tab title="Informacion detallada">
 
-                <p:panel header="3">
+                <p:panel header="">
                     <h:panelGrid columns="4" style="margin: 0 auto">
-                        <p:outputLabel value="Edad: " rendered="#{ciudadanoBean.isRendered(0)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod0}" value="#{ciudadanoBean.denuncia.edad}" rendered="#{ciudadanoBean.isRendered(0)}"/>
-                        <p:outputLabel value="Zona: " rendered="#{ciudadanoBean.isRendered(1)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod1}" value="#{ciudadanoBean.denuncia.zona}" rendered="#{ciudadanoBean.isRendered(1)}"/>
-                        <p:outputLabel value="Arma empleada: " rendered="#{ciudadanoBean.isRendered(2)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod2}" value="#{ciudadanoBean.denuncia.arma_empleada}" rendered="#{ciudadanoBean.isRendered(2)}"/>
-                        <p:outputLabel value="Movil victima: " rendered="#{ciudadanoBean.isRendered(3)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod3}" value="#{ciudadanoBean.denuncia.movil_victima}" rendered="#{ciudadanoBean.isRendered(3)}"/>
-                        <p:outputLabel value="Movil agresor: " rendered="#{ciudadanoBean.isRendered(4)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod4}" value="#{ciudadanoBean.denuncia.movil_agresor}" rendered="#{ciudadanoBean.isRendered(4)}"/>
-                        <p:outputLabel value="Sexo: " rendered="#{ciudadanoBean.isRendered(5)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod5}" value="#{ciudadanoBean.denuncia.sexo}" rendered="#{ciudadanoBean.isRendered(5)}"/>
-                        <p:outputLabel value="Estado civil: " rendered="#{ciudadanoBean.isRendered(6)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod6}" value="#{ciudadanoBean.denuncia.estado_civil}" rendered="#{ciudadanoBean.isRendered(6)}"/>
-                        <p:outputLabel value="Escolaridad: " rendered="#{ciudadanoBean.isRendered(7)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod7}" value="#{ciudadanoBean.denuncia.escolaridad}" rendered="#{ciudadanoBean.isRendered(7)}"/>
-                        <p:outputLabel value="Clase de sitio: " rendered="#{ciudadanoBean.isRendered(8)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod8}" value="#{ciudadanoBean.denuncia.clase_de_sitio}" rendered="#{ciudadanoBean.isRendered(8)}"/>
-                        <p:outputLabel value="Cantidad: " rendered="#{ciudadanoBean.isRendered(9)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod9}" value="#{ciudadanoBean.denuncia.cantidad}" rendered="#{ciudadanoBean.isRendered(9)}"/>
-                        <p:outputLabel value="Profesion: " rendered="#{ciudadanoBean.isRendered(10)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod10}" value="#{ciudadanoBean.denuncia.profesion}" rendered="#{ciudadanoBean.isRendered(10)}"/>
-                        <p:outputLabel value="Pais de nacimiento: " rendered="#{ciudadanoBean.isRendered(11)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod11}" value="#{ciudadanoBean.denuncia.pais_de_nacimiento}" rendered="#{ciudadanoBean.isRendered(11)}"/>
-                        <p:outputLabel value="Clase de empleado: " rendered="#{ciudadanoBean.isRendered(12)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod12}" value="#{ciudadanoBean.denuncia.clase_de_empleado}" rendered="#{ciudadanoBean.isRendered(12)}"/>
-                        <p:outputLabel value="Clase: " rendered="#{ciudadanoBean.isRendered(13)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod13}" value="#{ciudadanoBean.denuncia.clase}" rendered="#{ciudadanoBean.isRendered(13)}"/>
-                        <p:outputLabel value="Marca: " rendered="#{ciudadanoBean.isRendered(14)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod14}" value="#{ciudadanoBean.denuncia.marca}" rendered="#{ciudadanoBean.isRendered(14)}"/>
-                        <p:outputLabel value="Linea: " rendered="#{ciudadanoBean.isRendered(15)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod15}" value="#{ciudadanoBean.denuncia.linea}" rendered="#{ciudadanoBean.isRendered(15)}"/>
-                        <p:outputLabel value="Modelo: " rendered="#{ciudadanoBean.isRendered(16)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod16}" value="#{ciudadanoBean.denuncia.modelo}" rendered="#{ciudadanoBean.isRendered(16)}"/>
-                        <p:outputLabel value="Color: " rendered="#{ciudadanoBean.isRendered(17)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod17}" value="#{ciudadanoBean.denuncia.color}" rendered="#{ciudadanoBean.isRendered(17)}"/>
-                        <p:outputLabel value="Profesiones: " rendered="#{ciudadanoBean.isRendered(18)}"/> <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethod18}" value="#{ciudadanoBean.denuncia.profesiones}" rendered="#{ciudadanoBean.isRendered(18)}"/>
+                        <p:outputLabel value="Edad: " rendered="#{ciudadanoBean.isRendered(0)}"/>
+                        <h:panelGrid columns="1" rendered="#{ciudadanoBean.isRendered(0)}">
+                            <p:inputText id="edad" value="#{ciudadanoBean.denuncia.edad}" rendered="#{ciudadanoBean.isRendered(0)}"/>
+                            <p:slider for="edad"/>
+                        </h:panelGrid>
+                        <p:outputLabel value="Zona: " rendered="#{ciudadanoBean.isRendered(1)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod1}" value="#{ciudadanoBean.denuncia.zona}" rendered="#{ciudadanoBean.isRendered(1)}"/>
+                        <p:outputLabel value="Arma empleada: " rendered="#{ciudadanoBean.isRendered(2)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod2}" value="#{ciudadanoBean.denuncia.arma_empleada}" rendered="#{ciudadanoBean.isRendered(2)}"/>
+                        <p:outputLabel value="Movil victima: " rendered="#{ciudadanoBean.isRendered(3)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod3}" value="#{ciudadanoBean.denuncia.movil_victima}" rendered="#{ciudadanoBean.isRendered(3)}"/>
+                        <p:outputLabel value="Movil agresor: " rendered="#{ciudadanoBean.isRendered(4)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod4}" value="#{ciudadanoBean.denuncia.movil_agresor}" rendered="#{ciudadanoBean.isRendered(4)}"/>
+                        <p:outputLabel value="Sexo: " rendered="#{ciudadanoBean.isRendered(5)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod5}" value="#{ciudadanoBean.denuncia.sexo}" rendered="#{ciudadanoBean.isRendered(5)}"/>
+                        <p:outputLabel value="Estado civil: " rendered="#{ciudadanoBean.isRendered(6)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod6}" value="#{ciudadanoBean.denuncia.estado_civil}" rendered="#{ciudadanoBean.isRendered(6)}"/>
+                        <p:outputLabel value="Escolaridad: " rendered="#{ciudadanoBean.isRendered(7)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod7}" value="#{ciudadanoBean.denuncia.escolaridad}" rendered="#{ciudadanoBean.isRendered(7)}"/>
+                        <p:outputLabel value="Clase de sitio: " rendered="#{ciudadanoBean.isRendered(8)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod8}" value="#{ciudadanoBean.denuncia.clase_de_sitio}" rendered="#{ciudadanoBean.isRendered(8)}"/>
+                        <p:outputLabel value="Cantidad: " rendered="#{ciudadanoBean.isRendered(9)}"/>
+                        <h:panelGrid columns="1" rendered="#{ciudadanoBean.isRendered(9)}">
+                            <p:inputText id="cantidad" value="#{ciudadanoBean.denuncia.cantidad}" rendered="#{ciudadanoBean.isRendered(9)}"/>
+                            <p:slider for="cantidad"/>
+                        </h:panelGrid>
+
+                        <p:outputLabel value="Profesion: " rendered="#{ciudadanoBean.isRendered(10)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod10}" value="#{ciudadanoBean.denuncia.profesion}" rendered="#{ciudadanoBean.isRendered(10)}"/>
+                        <p:outputLabel value="Pais de nacimiento: " rendered="#{ciudadanoBean.isRendered(11)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod11}" value="#{ciudadanoBean.denuncia.pais_de_nacimiento}" rendered="#{ciudadanoBean.isRendered(11)}"/>
+                        <p:outputLabel value="Clase de empleado: " rendered="#{ciudadanoBean.isRendered(12)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod12}" value="#{ciudadanoBean.denuncia.clase_de_empleado}" rendered="#{ciudadanoBean.isRendered(12)}"/>
+                        <p:outputLabel value="Clase: " rendered="#{ciudadanoBean.isRendered(13)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod13}" value="#{ciudadanoBean.denuncia.clase}" rendered="#{ciudadanoBean.isRendered(13)}"/>
+                        <p:outputLabel value="Marca: " rendered="#{ciudadanoBean.isRendered(14)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod14}" value="#{ciudadanoBean.denuncia.marca}" rendered="#{ciudadanoBean.isRendered(14)}"/>
+                        <p:outputLabel value="Linea: " rendered="#{ciudadanoBean.isRendered(15)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod15}" value="#{ciudadanoBean.denuncia.linea}" rendered="#{ciudadanoBean.isRendered(15)}"/>
+                        <p:outputLabel value="Modelo: " rendered="#{ciudadanoBean.isRendered(16)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod16}" value="#{ciudadanoBean.denuncia.modelo}" rendered="#{ciudadanoBean.isRendered(16)}"/>
+                        <p:outputLabel value="Color: " rendered="#{ciudadanoBean.isRendered(17)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod17}" value="#{ciudadanoBean.denuncia.color}" rendered="#{ciudadanoBean.isRendered(17)}"/>
+                        <p:outputLabel value="Profesiones: " rendered="#{ciudadanoBean.isRendered(18)}"/> <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod18}" value="#{ciudadanoBean.denuncia.profesiones}" rendered="#{ciudadanoBean.isRendered(18)}"/>
                     </h:panelGrid>
                 </p:panel>
-
+                <p:commandButton actionListener="#{ciudadanoBean.upload}" value="Subir"/>
             </p:tab>
         </p:wizard>
     </h:form>
@@ -75,7 +84,7 @@
         <h:form prependId="false">
             <h:panelGrid columns="2">
                 <h:outputLabel for="title" value="Title:" />
-                <p:autoComplete completeMethod="#{ciudadanoBean.autoCompleteMethodCategorias}" id="title" value="#{ciudadanoBean.denuncia.categoria}" />
+                <p:autoComplete dropdown="true" completeMethod="#{ciudadanoBean.autoCompleteMethod19}" id="title" value="#{ciudadanoBean.denuncia.categoria}" />
                 <f:facet name="footer">
                     <p:commandButton value="Add" actionListener="#{ciudadanoBean.addMarker}" update=":messages" oncomplete="markerAddComplete()" />
                     <p:commandButton value="Cancel" onclick="return cancel()" />

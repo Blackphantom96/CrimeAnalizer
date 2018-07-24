@@ -1,4 +1,5 @@
 package co.edu.escuelaing.is.labinfo.utiles;
+import co.edu.escuelaing.is.labinfo.beans.CiudadanoBean;
 import co.edu.escuelaing.is.labinfo.entities.Denuncia;
 
 import java.sql.*;
@@ -13,7 +14,7 @@ public class Utiles {
     private static Map<String,String> cordsByMun;
     private static List<String> categorias;
     private static String dataBase,pass,user;
-
+    private static Map <String, List<String>> columnValues;
 
     //TODO: implementar singleton
 
@@ -38,7 +39,7 @@ public class Utiles {
 
     public static void insertCrimen(Denuncia denuncia, String table) throws SQLException {
         getConection();
-        conection.executeUpdate("insert  into " +table+" "+denuncia.toString());
+        conection.executeUpdate(denuncia.toString());
         conection.close();
     }
 
@@ -78,6 +79,26 @@ public class Utiles {
                 categorias.add(res.getString("categoria"));
         }
         return categorias;
+    }
+
+    public static void armarDic() throws SQLException {
+        columnValues = new HashMap<>();
+        getConection();
+        for(String i: CiudadanoBean.COLUMNAS)if(!i.equals("departamento") && !i.equals("municipio") && !i.equals("edad")){
+            System.out.println("Creando cache de: "+i);
+            columnValues.put(i,new ArrayList<>());
+            ResultSet res = makeQuery(i,i+"s","true");
+            while (res.next()){
+                columnValues.get(i).add(res.getString(i));
+            }
+        }
+        conection.close();
+    }
+
+    public static Map<String,List<String>> getColumnValues() throws SQLException {
+        if(columnValues==null)
+            armarDic();
+        return columnValues;
     }
 
 }

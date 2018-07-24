@@ -23,7 +23,7 @@ import javax.annotation.PostConstruct;
 public class CiudadanoBean implements Serializable {
     private Denuncia denuncia;
     private List<String> municipios;
-    private static final String[] COLUMNAS= {
+    public static final String[] COLUMNAS= {
             "edad",
             "zona",
             "arma_empleada",
@@ -42,7 +42,8 @@ public class CiudadanoBean implements Serializable {
             "linea",
             "modelo",
             "color",
-            "profesiones"};
+            "profesiones",
+            "categoria"};
     private static final Map<String,String[]> CATEGORIAS = new HashMap<>();
     {
         CATEGORIAS.put("abigeato",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
@@ -59,7 +60,7 @@ public class CiudadanoBean implements Serializable {
         CATEGORIAS.put("hurto_de_celulares",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","clase","marca","linea","cantidad"});
         CATEGORIAS.put("hurto_personas",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
         CATEGORIAS.put("hurto_residencias",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
-        CATEGORIAS.put("huto_de motocicletas",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","clase","marca","linea","modelo","color","cantidad"});
+        CATEGORIAS.put("huto_de_motocicletas",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","clase","marca","linea","modelo","color","cantidad"});
         CATEGORIAS.put("lesiones_accidentes_transito",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
         CATEGORIAS.put("lesiones_personales",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
         CATEGORIAS.put("pirateria_terrestre",new String[]{"zona","clase_de_sitio","arma_empleada","movil_agresor","movil_victima","edad","sexo","estado_civil","pais_de_nacimiento","clase_de_empleado","profesion","escolaridad","codigo_dane","cantidad"});
@@ -72,6 +73,7 @@ public class CiudadanoBean implements Serializable {
     public CiudadanoBean() throws SQLException {
         Utiles.getDepartamentos();
         Utiles.getCategorias();
+        Utiles.armarDic();
         denuncia=new Denuncia();
     }
     public Denuncia getDenuncia() {
@@ -165,123 +167,133 @@ public class CiudadanoBean implements Serializable {
     }
 
     public boolean isRendered(int x){
-        return Arrays.asList(CATEGORIAS.get(denuncia.getCategoria())).contains(COLUMNAS[x]);
+        return Arrays.asList(CATEGORIAS.get(denuncia.getCategoria().replace(" ","_"))).contains(COLUMNAS[x]);
     }
 
     public List<String> autoCompleteMethod0(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[0])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod1(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[1])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod2(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[2])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod3(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[3])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod4(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[4])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod5(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[5])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod6(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[6])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod7(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[7])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod8(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[8])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod9(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[9])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod10(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[10])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod11(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[11])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod12(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[12])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod13(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[13])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod14(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[14])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod15(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[15])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod16(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[16])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod17(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[17])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
     }public List<String> autoCompleteMethod18(String q) throws SQLException {
         List<String> res = new ArrayList<>();
-        for(String x: Utiles.getCategorias()) if (x.startsWith(q)){
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[18])) if (x.startsWith(q)){
             res.add(x);
         }
         return res;
+    }public List<String> autoCompleteMethod19(String q) throws SQLException {
+        List<String> res = new ArrayList<>();
+        for(String x: Utiles.getColumnValues().get(COLUMNAS[19])) if (x.startsWith(q)){
+            res.add(x);
+        }
+        return res;
+    }
+
+    public void upload() throws SQLException {
+        Utiles.insertCrimen(denuncia,"DatosAlaU");
     }
 
 
