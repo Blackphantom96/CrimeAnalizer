@@ -547,6 +547,11 @@ a:focus {
   color: #fff;
 }
 
+.testimonials-section .section-content {
+    color: #fff;
+    /* max-width: 800px; */
+}
+
 .testimonials-section .item {
   position: relative;
   max-width: 800px;
